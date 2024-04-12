@@ -7,31 +7,27 @@ let question = {
    correctAnswer: 1
 }  ;
 function showquestion(q){
-
+    let alts = document.querySelectorAll('.alternatives');
+    
     titleDiv.textContent =question.title;
+    alts.forEach(function(element,index){
+        element.textContent = q.alternatives[index];
 
+        element.addEventListener('click',function(e){
+            if( index=== question.correctAnswer){
+                console.log('right')
+            }
+            else{
+                console.log('no')
+            }
+        })
+     })
+     
 }
 
-let answers =question.alternatives;
-let alts = document.querySelectorAll('.alternatives');
-
-
-// for(let ans of answers){
-    // alts.forEach(function(a,idx){
-        // alts[idx].innerHTML =ans[]
-//     })
-//     console.log(ans);
-// }
 showquestion(question);
 
-answers.forEach(function(ans,idxans){
-    console.log(ans,idxans)
-    alts.forEach(function(alt,idx){
-        console.log(alt);
-        ans[idxans].innerHtml = alt[idx]
 
-    })
-})
 
 
 
